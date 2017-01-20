@@ -1,2 +1,19 @@
 # lita-gittitle
-githubの各種URLのタイトルを取得したい
+
+TODO: Add a description of the plugin.
+
+## Installation
+
+Add lita-gittitle to your Lita instance's Gemfile:
+
+``` ruby
+gem "lita-gittitle"
+```
+
+## Configuration
+
+TODO: Describe any configuration attributes the plugin exposes.
+
+## Usage
+
+TODO: Describe the plugin's features and how to use them.
