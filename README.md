@@ -12,7 +12,12 @@ gem "lita-gittitle"
 
 ## Configuration
 
-TODO: Describe any configuration attributes the plugin exposes.
+lita_config.rbに以下を追加
+
+-config.handlers.gittitle.token = ENV['GH_READ_TOKEN']
+-config.handlers.gittitle.web_endpoint = 'github.com/'
+-config.handlers.gittitle.api_endpoint = 'https://api.github.com/'
+
 
 ## Usage
 
