@@ -8,7 +8,7 @@ module Lita
       # insert handler code here
       route(/(.+\/.+)#([0-9]+)/i,:issue) 
 			def set_route_issue(payload)
-        regexp = config.web_endpoint + "\/(.+)\/issues\/([0-9]+)"
+        regexp = "(http[s]://" + config.web_endpoint + ")\/(.+)\/issues\/([0-9]+)"
         self.class.route(/#{regexp}/i,:issue,help:{"GHEのissueのURL" => "タイトルを返す"})
 			end
 			def octokit()
@@ -20,8 +20,8 @@ module Lita
 		  end 	
       def issue(response)
 				octokit()
-        issue =  @@octokit.issue(response.matches[0][0],response.matches[0][1])
-	      response.reply(config.web_endpoint + response.matches[0][0] + "/issues/" + response.matches[0][1] + "\n" + issue.title)
+        issue =  @@octokit.issue(response.matches[0][1],response.matches[0][2])
+	      response.reply(response.matches[0][0] + "/" + response.matches[0][1] + "/issues/" + response.matches[0][2] + "\n" + issue.title)
       end
       Lita.register_handler(self)
     end
